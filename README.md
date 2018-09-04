@@ -1,1 +1,1 @@
-# Hello 
+# Blog API project with mongo/mongoose backend
