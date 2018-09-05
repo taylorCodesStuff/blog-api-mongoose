@@ -6,7 +6,7 @@ const morgan = require('morgan');
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL } = require('./config');
-const { Post } = require('./models');
+const Post = require('./models');
 
 const app = express();
 app.use(express.json());
@@ -16,6 +16,7 @@ app.get('/posts', (req, res) => {
     Post
         .find()
         .then(posts => {
+            console.log('posts', posts);
             res.json(posts.map(post => post.serialize()))
         })
         .catch(err => {
