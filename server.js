@@ -86,7 +86,7 @@ app.put('/posts/:id', (req, res) => {
       }
     });
   
-    BlogPost
+    Post
       .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
       .then(updatedPost => res.status(204).end())
       .catch(err => res.status(500).json({ message: 'Something went wrong' }));
@@ -94,7 +94,7 @@ app.put('/posts/:id', (req, res) => {
 
 
   app.delete('/:id', (req, res) => {
-    BlogPost
+    Post
       .findByIdAndRemove(req.params.id)
       .then(() => {
         console.log(`Deleted blog post with id \`${req.params.id}\``);
